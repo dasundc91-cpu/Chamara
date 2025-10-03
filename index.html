@@ -1,761 +1,1223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" & "සිංහල">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamara Panint group | Chamara Panint group</title>
-    <style>
-        /* Base Styles */
-        :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --accent: #f39c12;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        h1, h2, h3 {
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        /* Header Styles */
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-        
-        /* Services Section */
-        .services {
-            background: var(--light);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--secondary);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .service-content {
-            padding: 25px;
-        }
-        
-        .service-content h3 {
-            margin-bottom: 15px;
-        }
-        
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            margin-bottom: 20px;
-        }
-        
-        .about-img {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Portfolio Section */
-        .portfolio {
-            background: var(--light);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .portfolio-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            height: 250px;
-        }
-        
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(44, 62, 80, 0.8);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        
-        /* Testimonials Section */
-        .testimonials-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .testimonial {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-        
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-        
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 5px;
-        }
-        
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        
-        .contact-info h3 {
-            margin-bottom: 20px;
-        }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: var(--secondary);
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-col h3 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-col ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-col ul li a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #bbb;
-            font-size: 14px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-img {
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 80%;
-                height: calc(100vh - 70px);
-                background: white;
-                transition: 0.5s;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
-            
-            nav.active {
-                left: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                padding: 30px;
-            }
-            
-            nav ul li {
-                margin: 0 0 20px 0;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chamara Paint Group | Professional Painting Services</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary: #2766d9;
+      --secondary: #1f3d70;
+      --accent: #ff9800;
+      --light: #f5f7fa;
+      --dark: #1c1c1c;
+      --text: #333;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(30, 60, 114, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 20px 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      background: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .logo i {
+      font-size: 24px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav ul li a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    nav ul li a:hover:after {
+      width: 100%;
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      margin-bottom: 20px;
+      color: white;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2:after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      display: block;
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      max-width: 600px;
+      margin: 20px auto 0;
+      color: #666;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+      height: 80px;
+      width: 80px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-icon i {
+      font-size: 32px;
+      color: white;
+    }
+
+    .service-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .service-img:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+    }
+
+    .service-content {
+      padding: 30px;
+      position: relative;
+    }
+
+    .service-content h3 {
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    /* About */
+    .about {
+      background: white;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-img {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-img img {
+      width: 100%;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .about-img:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-content h2 {
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+    }
+
+    .features {
+      margin-top: 30px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .feature i {
+      color: var(--accent);
+      margin-right: 15px;
+      font-size: 20px;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 60, 114, 0.85);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: white;
+    }
+
+    .testimonials-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonial {
+      background: var(--light);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .testimonial:after {
+      content: '\201D';
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 80px;
+      color: rgba(30, 60, 114, 0.1);
+      font-family: sans-serif;
+    }
+
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .author-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+
+    .author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      border-radius: 12px;
+      margin: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+
+    /* Contact */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon i {
+      color: white;
+      font-size: 20px;
+    }
+
+    .contact-details h3 {
+      margin-bottom: 5px;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Form status messages */
+    .form-status {
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      display: none;
+    }
+
+    .form-status.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      display: block;
+    }
+
+    .form-status.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #bbb;
+      padding: 80px 20px 30px;
+    }
+
+    footer h3 {
+      color: white;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    footer h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col p {
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      text-decoration: none;
+      color: #bbb;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-col ul li a i {
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .footer-col ul li a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media(max-width: 992px) {
+      .about-container,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-img {
+        order: -1;
+      }
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 42px;
+      }
+      
+      .hero p {
+        font-size: 18px;
+      }
+      
+      .section-title h2 {
+        font-size: 36px;
+      }
+      
+      .mobile-toggle {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        padding: 80px 30px 30px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: var(--transition);
+        z-index: 999;
+      }
+      
+      nav.active {
+        right: 0;
+      }
+      
+      nav ul {
+        flex-direction: column;
+      }
+      
+      nav ul li {
+        margin: 0 0 20px 0;
+      }
+      
+      .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+      
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @media(max-width: 576px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+      }
+      
+      section {
+        padding: 80px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-         <div class="container header-container">
-            <div class="logo">Chamara <span>Paint Group</span></div>
-            <div class="mobile-menu">☰</div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo"><i class="fas fa-paint-roller"></i> Chamara <span>Paint Group</span></div>
+      <div class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav>
+        <div class="close-menu">
+          <i class="fas fa-times"></i>
         </div>
-    </header>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="overlay"></div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Transform Your Home with Professional Painting</h1>
-            <p>We provide high-quality interior and exterior painting services that bring new life to your space</p>
-            <a href="#contact" class="btn">Get Free Estimate</a>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Transform Your Space with Expert Painting</h1>
+      <p>Professional painting services that bring beauty, protection, and value to your property.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn">Get Free Estimate <i class="fas fa-arrow-right"></i></a>
+        <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>We offer a comprehensive range of painting services to meet all your needs</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7');"></div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3>Interior Painting</h3>
+            <p>Transform your indoor spaces with premium paints and a flawless finish that enhances your home's beauty.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
+        <div class="service-card">
+          <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2');"></div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-building"></i>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Interior Painting</h3>
-                        <p>Transform your indoor spaces with our professional interior painting services. We use premium paints and techniques for a flawless finish.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Exterior Painting</h3>
-                        <p>Protect and beautify your home's exterior with our weather-resistant painting solutions that stand the test of time.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Cabinet Refinishing</h3>
-                        <p>Give your kitchen or bathroom a fresh new look without the cost of replacement with our cabinet refinishing services.</p>
-                    </div>
-                </div>
-            </div>
+            <h3>Exterior Painting</h3>
+            <p>Protect and beautify your home's exterior with weather-resistant solutions that stand the test of time.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Why Choose Chamara Paint Group?</h2>
-                    <p>With over 40 years of experience in the painting industry, we take pride in delivering exceptional results that exceed our clients' expectations.</p>
-                    <p>Our team of skilled painters uses only the highest quality materials and follows meticulous preparation processes to ensure a perfect finish every time.</p>
-                    <p>We understand that your home is your sanctuary, which is why we treat every project with the care and attention it deserves.</p>
-                    <a href="#contact" class="btn">Contact Us Today</a>
-                </div>
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our painting team">
-                </div>
+        <div class="service-card">
+          <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1595428774223-ef52624120d2');"></div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-archive"></i>
             </div>
+            <h3>Cabinet Refinishing</h3>
+            <p>Give your kitchen or bathroom a fresh new look without the expense of full cabinet replacement.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Work</h2>
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-container">
+        <div class="about-content">
+          <div class="section-title">
+            <h2>About Us</h2>
+            <p>Learn why Chamara Paint Group is the trusted choice for painting services</p>
+          </div>
+          <p>With over 15 years of experience, Chamara Paint Group has established itself as a leader in the painting industry. Our commitment to quality, attention to detail, and customer satisfaction sets us apart.</p>
+          <p>We use only premium materials and the latest techniques to ensure a flawless finish that not only looks beautiful but also provides lasting protection for your property.</p>
+          <div class="features">
+            <div class="feature">
+              <i class="fas fa-check-circle"></i>
+              <span>Licensed and insured professionals</span>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Living room painting">
-                    <div class="portfolio-overlay">
-                        <h3>Modern Living Room</h3>
-                        <p>Contemporary color scheme with accent wall</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Exterior house painting">
-                    <div class="portfolio-overlay">
-                        <h3>Exterior Makeover</h3>
-                        <p>Complete exterior repaint with new color scheme</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kitchen cabinet painting">
-                    <div class="portfolio-overlay">
-                        <h3>Kitchen Cabinet Refresh</h3>
-                        <p>Cabinet refinishing with durable finish</p>
-                    </div>
-                </div>
+            <div class="feature">
+              <i class="fas fa-check-circle"></i>
+              <span>Premium quality materials</span>
             </div>
+            <div class="feature">
+              <i class="fas fa-check-circle"></i>
+              <span>On-time project completion</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-check-circle"></i>
+              <span>5-year warranty on all work</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn" style="margin-top: 20px;">Learn More</a>
         </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Chamara Paint Group transformed our entire home! Their attention to detail and professionalism was outstanding. We couldn't be happier with the results."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="images/Rayan Dulanjana.jpg" alt="Rayan Dulanjana">
-                        </div>
-                        <div class="author-info">
-                            <h4>Ryan Dulanjana</h4>
-                            <p>Homeowner</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"The exterior painting job they did on our house has held up beautifully through two harsh winters. The team was efficient, clean, and respectful of our property."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="images/Dasun Chamara.jpeg" alt="Dasun Chamara">
-                        </div>
-                        <div class="author-info">
-                            <h4>Dasun Chamara</h4>
-                            <p>Property Manager</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our painting team">
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Transform Your Space?</h2>
-            <p>Contact us today for a free, no-obligation estimate. Let's discuss your painting project and bring your vision to life.</p>
-            <a href="#contact" class="btn">Get Your Free Estimate</a>
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Portfolio</h2>
+        <p>Browse through some of our recent projects</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" alt="Modern Living Room">
+          <div class="portfolio-overlay">
+            <h3>Modern Living Room</h3>
+            <p>Contemporary colors with accent wall</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div>
-                                <h4>Our Location</h4>
-                                <p>Catholic Cemetory Road, Haldanduwana, Dankotuwa</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div>
-                                <h4>Phone Number</h4>
-                                <p>(76) 384-0056</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div>
-                                <h4>Email Address</h4>
-                                <p>dasun.it@hotmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="tel" placeholder="Your Phone">
-                        <textarea placeholder="Tell us about your project" required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="Exterior Makeover">
+          <div class="portfolio-overlay">
+            <h3>Exterior Makeover</h3>
+            <p>Complete exterior repaint</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Chamara Paint Group</h3>
-                    <p>Professional painting services for residential and commercial properties. Transforming spaces with quality and care since 2000.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#services">Interior Painting</a></li>
-                        <li><a href="#services">Exterior Painting</a></li>
-                        <li><a href="#services">Cabinet Refinishing</a></li>
-                        <li><a href="#services">Color Consultation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Connect With Us</h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Pinterest</a></li>
-                        <li><a href="#">Houzz</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Chamara Paint Group. All rights reserved.</p>
-            </div>
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kitchen Cabinet Refinishing">
+          <div class="portfolio-overlay">
+            <h3>Kitchen Cabinet Refinishing</h3>
+            <p>White finish with new hardware</p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Client Testimonials</h2>
+        <p>See what our satisfied customers have to say</p>
+      </div>
+      <div class="testimonials-container">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Chamara Paint Group transformed our home! Their attention to detail and professionalism was exceptional. The team was clean, efficient, and the results exceeded our expectations."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-img">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+            </div>
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>Homeowner, Colombo</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"We hired Chamara Paint Group for our office renovation. They completed the project on time and within budget. The quality of work is outstanding, and our employees love the new look!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-img">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Perera">
+            </div>
+            <div class="author-info">
+              <h4>David Perera</h4>
+              <p>Business Owner, Kandy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-content">
+      <h2>Ready to Transform Your Space?</h2>
+      <p>Contact us today for a free, no-obligation estimate. Let's bring your vision to life with our expert painting services.</p>
+      <a href="#contact" class="btn">Get Your Free Estimate <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Get in touch with our team for all your painting needs</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Our Location</h3>
+              <p>Catholic Cemetery Road, Haldanduwana, Dankotuwa</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Phone Number</h3>
+              <p>+94 763 840 056</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Email Address</h3>
+              <p>dasun.it@hotmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Working Hours</h3>
+              <p>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <div id="form-status" class="form-status"></div>
+          <form id="contactForm" action="https://formspree.io/f/xvgwrlpg" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+              <label for="service">Service Interested In</label>
+              <select id="service" name="service" class="form-control">
+                <option value="">Select a service</option>
+                <option value="interior">Interior Painting</option>
+                <option value="exterior">Exterior Painting</option>
+                <option value="cabinet">Cabinet Refinishing</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project" required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Send Message <i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Chamara Paint Group</h3>
+        <p>Professional painting services for residential and commercial spaces. Transforming properties with quality and care since 2008.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="#portfolio"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Interior Painting</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Exterior Painting</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Cabinet Refinishing</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Color Consultation</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Surface Preparation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Chamara Paint Group. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header background on scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const nav = document.querySelector('nav');
+    const closeMenu = document.querySelector('.close-menu');
+    const overlay = document.querySelector('.overlay');
+    
+    mobileToggle.addEventListener('click', () => {
+      nav.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    closeMenu.addEventListener('click', () => {
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+    
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('form-status');
+    
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(contactForm);
+      
+      // Show loading state
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+      submitBtn.disabled = true;
+      
+      try {
+        // Send form data to Formspree
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
         });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav').classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+        
+        if (response.ok) {
+          // Success
+          formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+          formStatus.className = 'form-status success';
+          contactForm.reset();
+        } else {
+          // Error
+          const errorData = await response.json();
+          if (errorData.errors) {
+            formStatus.textContent = errorData.errors.map(error => error.message).join(', ');
+          } else {
+            formStatus.textContent = 'Oops! There was a problem sending your message. Please try again.';
+          }
+          formStatus.className = 'form-status error';
+        }
+      } catch (error) {
+        // Network error
+        formStatus.textContent = 'Oops! There was a problem sending your message. Please check your connection and try again.';
+        formStatus.className = 'form-status error';
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
